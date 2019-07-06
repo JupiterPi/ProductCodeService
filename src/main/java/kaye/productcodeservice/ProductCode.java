@@ -6,13 +6,15 @@ public class ProductCode {
     private ProductCodesCategory category;
     private String code;
     private String note;
+    private int timesRemaining;
     private Date madeAt;
     private User madeBy;
     
-    public ProductCode(ProductCodesCategory category, String code, String note, Date madeAt, User madeBy) {
+    public ProductCode(ProductCodesCategory category, String code, String note, int timesRemaining, Date madeAt, User madeBy) {
         this.category = category;
         this.code = code;
         this.note = note;
+        this.timesRemaining = timesRemaining;
         this.madeAt = madeAt;
         this.madeBy = madeBy;
     }
@@ -26,7 +28,13 @@ public class ProductCode {
     }
     
     public boolean proofCode(String code) {
-        return (code.equals(this.code));
+        if (code.equals(this.code)) {
+            if (timesRemaining > 0) {
+                timesRemaining--;
+                return true;
+            }
+        }
+        return false;
     }
     
     public String getNote() {

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 public class ProductCodeService {
-//    @Autowired ProductCodesDatabase database;
     public static void main (String[] args) {
         SpringApplication.run(ProductCodeService.class, args);
     }

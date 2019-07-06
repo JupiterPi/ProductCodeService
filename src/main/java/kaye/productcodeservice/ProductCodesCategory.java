@@ -16,8 +16,8 @@ public class ProductCodesCategory {
         return name;
     }
 
-    public void addCode (String code, String note, Date madeAt, User madeBy) {
-        codes.add(new ProductCode(this, code, note, madeAt, madeBy));
+    public void addCode (String code, String note, int timesRemaining, Date madeAt, User madeBy) {
+        codes.add(new ProductCode(this, code, note, timesRemaining, madeAt, madeBy));
     }
 
     public ProductCode getCode (String code) throws CodeDoesNotExistException {
