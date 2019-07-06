@@ -1,4 +1,4 @@
-package main.java.kaye.productcodeservice;
+package kaye.testor;
 
 import org.springframework.stereotype.Service;
 

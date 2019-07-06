@@ -1,4 +1,4 @@
-package main.java.kaye.productcodeservice;
+package kaye.testor;
 
 public class CodeDoesNotExistException extends Exception {
 
