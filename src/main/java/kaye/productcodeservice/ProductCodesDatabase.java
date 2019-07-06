@@ -1,8 +1,11 @@
 package main.java.kaye.productcodeservice;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ProductCodesDatabase {
     private List<ProductCodesCategory> categories = new ArrayList<ProductCodesCategory>();
 
