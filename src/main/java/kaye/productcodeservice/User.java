@@ -1,4 +1,4 @@
-package kaye.testor;
+package kaye.productcodeservice;
 
 public class User {
     private String name;

@@ -1,4 +1,4 @@
-package kaye.testor;
+package kaye.productcodeservice;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping(path="")
 @RestController
 public class Controller {
-    @Autowired
-    kaye.testor.ProductCodesDatabase database;
+    @Autowired ProductCodesDatabase database;
 
     @GetMapping("/helloworld")
     public String getHelloWorld() {

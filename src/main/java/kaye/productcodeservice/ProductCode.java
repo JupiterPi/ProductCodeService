@@ -1,4 +1,4 @@
-package kaye.testor;
+package kaye.productcodeservice;
 
 import java.util.Date;
 
