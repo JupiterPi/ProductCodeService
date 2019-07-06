@@ -1,4 +1,4 @@
-package kaye.productcodeservice;
+package main.java.kaye.productcodeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

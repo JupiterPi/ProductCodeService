@@ -4,5 +4,5 @@ main\java\kaye\productcodeservice\CategoryDoesNotExistException.class
 main\java\kaye\productcodeservice\ProductCodesCategory.class
 main\java\kaye\productcodeservice\CodeDoesNotExistException.class
 main\java\kaye\productcodeservice\ProductCodesDatabase.class
-kaye\productcodeservice\ProductCodeService.class
-kaye\productcodeservice\Controller.class
+main\java\kaye\productcodeservice\ProductCodeService.class
+main\java\kaye\productcodeservice\Controller.class

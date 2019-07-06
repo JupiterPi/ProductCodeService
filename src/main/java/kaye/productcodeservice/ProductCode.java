@@ -1,4 +1,4 @@
-package kaye.productcodeservice;
+package main.java.kaye.productcodeservice;
 
 import java.util.Date;
 
