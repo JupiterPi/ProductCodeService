@@ -12,25 +12,27 @@ public class Controller {
 
     @GetMapping("/helloworld")
     public String getHelloWorld() {
-        return "Hello World!";
+        return "<a href='https://github.com/JupiterPi/ProductCodeService'>Hello World</a>";
     }
 
     @PostMapping("/addCategory/{name}")
-    public void addCategory(@PathVariable String name) {
+    public String addCategory(@PathVariable String name) {
         database.addCategory(name);
+        return "OK";
     }
 
     @PostMapping("/addCode/{category}/{code}")
-    public void addCode(@PathVariable String category, @PathVariable String code) {
+    public String addCode(@PathVariable String category, @PathVariable String code) {
         try {
             database.addCode(category, code, "test", 1, new Date(), new User("anonymous;wasweisich"));
+            return "OK";
         } catch (CategoryDoesNotExistException x) {
-
+            return "Diese Kategorie gibt es nicht!";
         }
     }
 
     @GetMapping("/proofCode/{category}/{code}")
-    public String proofCode(@PathVariable String category, @PathVariable String code) throws CategoryDoesNotExistException {
+    public String proofCode(@PathVariable String category, @PathVariable String code) {
         try {
             if (database.proofCode(category, code)) {
                 return "Right!";

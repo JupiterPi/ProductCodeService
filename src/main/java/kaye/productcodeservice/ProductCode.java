@@ -6,6 +6,7 @@ public class ProductCode {
     private ProductCodesCategory category;
     private String code;
     private String note;
+    private boolean infinite;
     private int timesRemaining;
     private Date madeAt;
     private User madeBy;
@@ -14,7 +15,8 @@ public class ProductCode {
         this.category = category;
         this.code = code;
         this.note = note;
-        this.timesRemaining = timesRemaining;
+        if (timesRemaining == 0) infinite = true;
+        else this.timesRemaining = timesRemaining;
         this.madeAt = madeAt;
         this.madeBy = madeBy;
     }
