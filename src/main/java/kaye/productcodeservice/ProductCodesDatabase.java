@@ -19,7 +19,7 @@ public class ProductCodesDatabase {
         for (ProductCodesCategory category : categories) {
             if (category.getName().equals(categoryName)) {
                 categorySet = true;
-                category.addCode(code, note, timesRemaining, madeAt, madeBy);
+                category.addCode(code, note, timesRemaining, madeBy);
             }
         }
         if (!categorySet) throw new CategoryDoesNotExistException();

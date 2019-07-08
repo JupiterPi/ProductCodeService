@@ -1,6 +1,9 @@
 package main.java.kaye.productcodeservice;
 
+import java.util.List;
 import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ProductCode {
     private ProductCodesCategory category;
@@ -16,7 +19,7 @@ public class ProductCode {
         this.madeBy = madeBy;
         
         Calendar calendar = new GregorianCalendar();
-        calender.add(Calendar.DATE, 30);
+        calendar.add(Calendar.DATE, 30);
         validTo = calendar.getTime();
     }
     
@@ -33,7 +36,7 @@ public class ProductCode {
         if (!categorySet) throw new CategoryDoesNotExistException();
         
         String[] s = fields[3].split(".");
-        validTo = new Date(Integer.toInt(s[0]), Integer.toInt(s[1]), Integer.toInt(s[2]));
+        validTo = new Date(Integer.parseInt(s[0]), Integer.parseInt(s[1]), Integer.parseInt(s[2]));
         
         this.madeBy = new User (fields[4]);
     }
@@ -55,10 +58,6 @@ public class ProductCode {
     
     public String getNote() {
         return note;
-    }
-    
-    public Date getMadeAt() {
-        return madeAt;
     }
     
     public User getMadeBy() {

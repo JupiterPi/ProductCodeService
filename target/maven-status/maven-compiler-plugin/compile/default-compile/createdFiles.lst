@@ -1,8 +1,3 @@
-main\java\kaye\productcodeservice\ProductCode.class
-main\java\kaye\productcodeservice\User.class
-main\java\kaye\productcodeservice\CategoryDoesNotExistException.class
-main\java\kaye\productcodeservice\ProductCodesCategory.class
-main\java\kaye\productcodeservice\CodeDoesNotExistException.class
-main\java\kaye\productcodeservice\ProductCodesDatabase.class
-main\java\kaye\productcodeservice\ProductCodeService.class
-main\java\kaye\productcodeservice\Controller.class
+main/java/kaye/productcodeservice/Controller.class
+kaye/productCodeService/FileToolForProductCodeService.class
+main/java/kaye/productcodeservice/ProductCodeService.class
