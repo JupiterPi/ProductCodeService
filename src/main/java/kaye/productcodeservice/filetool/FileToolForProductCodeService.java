@@ -1,4 +1,4 @@
-package kaye.productCodeService;
+package kaye.productcodeservice.filetool;
 
 import java.util.*;
 import java.io.*;
@@ -33,7 +33,7 @@ public class FileToolForProductCodeService
 		Reader.close();
 	}
 	
-	public ArrayList getFile ()
+	public List<String> getFile ()
 	{
 		return file;
 	}

@@ -1,14 +1,18 @@
 package main.java.kaye.productcodeservice;
 
+import kaye.productcodeservice.filetool.*;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.io.IOException;
 
 @Service
 public class ProductCodesDatabase {
     private List<ProductCodesCategory> categories = new ArrayList<ProductCodesCategory>();
+    private List<User> users = new ArrayList<User>();
 
     public void addCategory(String name) {
         categories.add(new ProductCodesCategory(name));
@@ -32,5 +36,24 @@ public class ProductCodesDatabase {
             }
         }
         throw new CategoryDoesNotExistException();
+    }
+    
+    public void loadData() throws IOException, CategoryDoesNotExistException {
+        FileToolForProductCodeService categoriesFile = new FileToolForProductCodeService("categories.txt");
+        categories = new ArrayList<ProductCodesCategory>();
+        for (String line : categoriesFile.getFile()) {
+            categories.add(new ProductCodesCategory(line));
+        }
+        
+        FileToolForProductCodeService codesFile = new FileToolForProductCodeService("codes.txt");
+        for (String line : codesFile.getFile()) {
+            ProductCode code = new ProductCode(categories, line);
+            code.getCategory().applyCode(code);
+        }
+        
+        FileToolForProductCodeService usersFile = new FileToolForProductCodeService("users.txt");
+        for (String line : usersFile.getFile()) {
+            users.add(new User(line));
+        }
     }
 }
