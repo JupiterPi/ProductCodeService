@@ -1,19 +1,21 @@
-package main.java.kaye.productcodeservice;
+package kaye.productcodeservice;
 
 import java.util.Date;
 
 public class ProductCode {
     private ProductCodesCategory category;
     private String code;
+    private String data;
     private String note;
     private boolean infinite;
     private int timesRemaining;
     private Date madeAt;
     private User madeBy;
     
-    public ProductCode(ProductCodesCategory category, String code, String note, int timesRemaining, Date madeAt, User madeBy) {
+    public ProductCode(ProductCodesCategory category, String code, String data, String note, int timesRemaining, Date madeAt, User madeBy) {
         this.category = category;
         this.code = code;
+        this.data = data;
         this.note = note;
         if (timesRemaining == 0) infinite = true;
         else this.timesRemaining = timesRemaining;
@@ -31,12 +33,19 @@ public class ProductCode {
     
     public boolean proofCode(String code) {
         if (code.equals(this.code)) {
-            if (timesRemaining > 0) {
-                timesRemaining--;
-                return true;
+            if (infinite) return true;
+            else {
+                if (timesRemaining > 0) {
+                    timesRemaining--;
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    public String getData() {
+        return data;
     }
     
     public String getNote() {

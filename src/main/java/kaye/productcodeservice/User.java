@@ -1,4 +1,4 @@
-package main.java.kaye.productcodeservice;
+package kaye.productcodeservice;
 
 public class User {
     private String name;

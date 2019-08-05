@@ -1,4 +1,6 @@
-package main.java.kaye.productcodeservice;
+package kaye.productcodeservice;
+
+import kaye.productcodeservice.ProductCode;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,8 +18,8 @@ public class ProductCodesCategory {
         return name;
     }
 
-    public void addCode (String code, String note, int timesRemaining, Date madeAt, User madeBy) {
-        codes.add(new ProductCode(this, code, note, timesRemaining, madeAt, madeBy));
+    public void addCode (String code, String data, String note, int timesRemaining, Date madeAt, User madeBy) {
+        codes.add(new ProductCode(this, code, data, note, timesRemaining, madeAt, madeBy));
     }
 
     public ProductCode getCode (String code) throws CodeDoesNotExistException {
@@ -32,5 +34,12 @@ public class ProductCodesCategory {
             if (productCode.proofCode(code)) return true;
         }
         return false;
+    }
+
+    public String getData(String code) {
+        for (ProductCode productCode : codes) {
+            if (productCode.proofCode(code)) return productCode.getData();
+        }
+        return "404: Code not found (from category)" + code;
     }
 }

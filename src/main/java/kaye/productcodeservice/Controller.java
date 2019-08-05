@@ -1,4 +1,4 @@
-package main.java.kaye.productcodeservice;
+package kaye.productcodeservice;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +15,38 @@ public class Controller {
         return "<a href='https://github.com/JupiterPi/ProductCodeService'>Hello World</a>";
     }
 
-    @PostMapping("/addCategory/{name}")
-    public String addCategory(@PathVariable String name) {
-        database.addCategory(name);
-        return "OK";
+    @PostMapping("/addUser/{username}/{password}")
+    public void addUser(@PathVariable String username, @PathVariable String password) {
+        database.addUser(username, password);
     }
 
-    @PostMapping("/addCode/{category}/{code}")
-    public String addCode(@PathVariable String category, @PathVariable String code) {
-        try {
-            database.addCode(category, code, "test", 1, new Date(), new User("anonymous;wasweisich"));
+    @GetMapping("/proofUser/{username}/{password}")
+    public String proofUser(@PathVariable String username, @PathVariable String password) {
+        if (database.proofUser(username, password)) return "Right!";
+        else return "Wrong!";
+    }
+
+    @PostMapping("/addCategory/{username}/{password}/{name}")
+    public String addCategory(@PathVariable String username, @PathVariable String password, @PathVariable String name) {
+        if (database.proofUser(username, password)) {
+            database.addCategory(name);
             return "OK";
-        } catch (CategoryDoesNotExistException x) {
-            return "Diese Kategorie gibt es nicht!";
-        }
+        } else return "Wrong login!";
+    }
+
+    // TEST-DATA: timesRemaining
+    @PostMapping("/addCode/{username}/{password}/{category}/{code}/{data}/{note}")
+    public String addCode(@PathVariable String username, @PathVariable String password, @PathVariable String category, @PathVariable String code, @PathVariable String data) {
+        if (database.proofUser(username, password)) {
+            try {
+                database.addCode(category, code, data, "test", 1, new Date(), database.getUser(username, password));
+                return "OK";
+            } catch (CategoryDoesNotExistException x) {
+                return "Diese Kategorie gibt es nicht!";
+            } catch (UserDoesNotExistException x) {
+                return "Wrong login!";
+            }
+        } else return "Wrong login!";
     }
 
     @GetMapping("/proofCode/{category}/{code}")
@@ -42,5 +60,21 @@ public class Controller {
         } catch (CategoryDoesNotExistException x) {
             return "Diese Kategorie gibt es nicht!";
         }
+    }
+
+    @GetMapping("/getData/{category}/{code}")
+    public String getDate (@PathVariable String category, @PathVariable String code) {
+        try {
+            return database.getData(category, code);
+        } catch (CategoryDoesNotExistException x) {
+            return "404: Category not found from controller";
+        }
+    }
+
+    @GetMapping("/{username}/{password}/getWholeData")
+    public String getWholeData(@PathVariable String username, @PathVariable String password) {
+        if (database.proofUser(username, password)) {
+            return database.getWholeData();
+        } else return "Wrong login!";
     }
 }
