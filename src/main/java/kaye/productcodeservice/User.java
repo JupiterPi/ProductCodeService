@@ -22,4 +22,8 @@ public class User {
     public boolean proofPassword(String password) {
         return (password.equals(this.password));
     }
+
+    public String toString() {
+        return name + ";" + password;
+    }
 }

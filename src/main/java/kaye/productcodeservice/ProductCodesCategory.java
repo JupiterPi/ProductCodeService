@@ -42,4 +42,12 @@ public class ProductCodesCategory {
         }
         return "404: Code not found (from category)" + code;
     }
+
+    public String getWholeData() {
+        String returning = "";
+        for (ProductCode code : codes) {
+            returning += code.toString() + "\n";
+        }
+        return returning;
+    }
 }
