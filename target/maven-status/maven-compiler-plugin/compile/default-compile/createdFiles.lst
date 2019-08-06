@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 kaye\productcodeservice\ProductCode.class
 kaye\productcodeservice\ProductCodesDatabase.class
 kaye\productcodeservice\CategoryDoesNotExistException.class
@@ -9,3 +10,8 @@ kaye\productcodeservice\ProductCodesCategory.class
 jupiterpi\vkbln4ll\filetool\CreatedNewFileException.class
 kaye\productcodeservice\ProductCodeService.class
 kaye\productcodeservice\Controller.class
+=======
+main/java/kaye/productcodeservice/Controller.class
+main/java/kaye/productcodeservice/ProductCodeService.class
+kaye/productcodeservice/filetool/FileToolForProductCodeService.class
+>>>>>>> 5e710c20c9de5b7d9f80bfb1416403ac16c6e0ef
