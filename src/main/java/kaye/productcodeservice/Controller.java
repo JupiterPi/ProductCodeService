@@ -3,12 +3,14 @@ package kaye.productcodeservice;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
 import java.util.Date;
 
 @RequestMapping(path="")
 @RestController
 public class Controller {
-    @Autowired ProductCodesDatabase database;
+    @Autowired
+    Database database;
 
     @GetMapping("/helloworld")
     public String getHelloWorld() {
@@ -39,7 +41,7 @@ public class Controller {
     public String addCode(@PathVariable String username, @PathVariable String password, @PathVariable String category, @PathVariable String code, @PathVariable String data, @PathVariable String note) {
         if (database.proofUser(username, password)) {
             try {
-                database.addCode(category, code, data, note, 1, new Date(), database.getUser(username, password));
+                database.addCode(category, code, data, note, 1, new Date(), database.getUser(username));
                 return "OK";
             } catch (CategoryDoesNotExistException x) {
                 return "Diese Kategorie gibt es nicht!";
@@ -71,10 +73,20 @@ public class Controller {
         }
     }
 
-    @GetMapping("getWholeData/{username}/{password}")
+    @GetMapping("/getWholeData/{username}/{password}")
     public String getWholeData(@PathVariable String username, @PathVariable String password) {
         if (database.proofUser(username, password)) {
             return database.getWholeData();
         } else return "Wrong login!";
+    }
+
+    @PostMapping("/load")
+    public void load() throws UserDoesNotExistException, CategoryDoesNotExistException, IOException {
+        database.load();
+    }
+
+    @PostMapping("/write")
+    public void write() throws IOException {
+        database.write();
     }
 }

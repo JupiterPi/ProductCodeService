@@ -1,51 +1,19 @@
-/*package jupiterpi.vkbln4ll.filetool;
+package kaye.productcodeservice.filetool;
 
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
-import jupiterpi.vkbln4ll.*;
 
 public class FileTool
 {
 	private String fileName;
-	private ArrayList file = new ArrayList();
+	private List<String> file = new ArrayList<String>();
 
-	private ConsoleOutput out = new ConsoleOutput();
-	
-	public FileToolForVkbln4ll (String fileName) throws IOException, CreatedNewFileException, EmptyFileException
+	public FileTool(String fileName) throws IOException
 	{
 		this.fileName = fileName;
 
 		File fileForCreating = new File (fileName);
-		if (fileForCreating.createNewFile()) throw new CreatedNewFileException();
-		
-		BufferedReader Reader = new BufferedReader (new FileReader (fileName));
-		boolean fileEnd = false;
-
-		boolean empty = true;
-		
-		while (!fileEnd)
-		{
-			String line = Reader.readLine();
-			if (line == null) fileEnd = true;
-			else
-			{
-				file.add (line);
-				empty = false;
-			}
-		}
-		Reader.close();
-
-		if (empty) throw new EmptyFileException();
-	}
-
-	public FileToolForVkbln4ll (String fileName, boolean simple) throws IOException, CreatedNewFileException, EmptyFileException
-	{
-		boolean e = !simple;
-		this.fileName = fileName;
-
-		File fileForCreating = new File (fileName);
-		if (e) if (fileForCreating.createNewFile()) throw new CreatedNewFileException();
 
 		BufferedReader Reader = new BufferedReader (new FileReader (fileName));
 		boolean fileEnd = false;
@@ -63,11 +31,9 @@ public class FileTool
 			}
 		}
 		Reader.close();
-
-		if (e) if (empty) throw new EmptyFileException();
 	}
-	
-	public ArrayList getFile ()
+
+	public List<String> getFile ()
 	{
 		return file;
 	}
@@ -89,38 +55,26 @@ public class FileTool
 		return returning;
 	}
 
-	public void setFile (ArrayList newFile)
+	public void setFile (List<String> newFile)
 	{
 		this.file = newFile;
 	}
-	
+
 	public String getLine (int line)
 	{
 		return (String) file.get(line);
 	}
-	
+
 	public void setLine (int line, String text)
 	{
-		if (!(line < file.size())) file.add(new String());
-		file.set(line, text);
+		file.set (line, text);
 	}
-	
+
 	public void writeToLine (int line, String text)
 	{
 		this.setLine (line, this.getLine (line) + text);
 	}
 
-	public boolean deleteLinesFrom (int line) {
-		try {
-			for (int i = line; i < file.size(); i++) {
-				file.remove(i);
-			}
-		} catch (ArrayIndexOutOfBoundsException x) {
-			return false;
-		}
-		return true;
-	}
-	
 	public void saveFile ()
 	{
 		String input;
@@ -142,4 +96,4 @@ public class FileTool
 				JOptionPane.showMessageDialog (null, "No valid input. Please redo!");
 		}
 	}
-}*/
+}
