@@ -36,10 +36,10 @@ public class Controller {
 
     // TEST-DATA: timesRemaining
     @PostMapping("/addCode/{username}/{password}/{category}/{code}/{data}/{note}")
-    public String addCode(@PathVariable String username, @PathVariable String password, @PathVariable String category, @PathVariable String code, @PathVariable String data) {
+    public String addCode(@PathVariable String username, @PathVariable String password, @PathVariable String category, @PathVariable String code, @PathVariable String data, @PathVariable String note) {
         if (database.proofUser(username, password)) {
             try {
-                database.addCode(category, code, data, "test", 1, new Date(), database.getUser(username, password));
+                database.addCode(category, code, data, note, 1, new Date(), database.getUser(username, password));
                 return "OK";
             } catch (CategoryDoesNotExistException x) {
                 return "Diese Kategorie gibt es nicht!";
@@ -71,7 +71,7 @@ public class Controller {
         }
     }
 
-    @GetMapping("/{username}/{password}/getWholeData")
+    @GetMapping("getWholeData/{username}/{password}")
     public String getWholeData(@PathVariable String username, @PathVariable String password) {
         if (database.proofUser(username, password)) {
             return database.getWholeData();
