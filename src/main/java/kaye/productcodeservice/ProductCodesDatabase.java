@@ -65,7 +65,7 @@ public class ProductCodesDatabase {
     public String getWholeData() {
         String returning = "";
         for (ProductCodesCategory category : categories) {
-            returning += category.toString();
+            returning += category.getWholeData() + "\n";
         }
         return returning;
     }

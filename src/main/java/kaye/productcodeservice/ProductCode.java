@@ -59,4 +59,13 @@ public class ProductCode {
     public User getMadeBy() {
         return madeBy;
     }
+
+    public String toString() {
+        String returning = "";
+        returning += category.getName() + ";" + code + ";" + data + ";" + note  + ";";
+        if (infinite) returning += "infinite;";
+        else returning += timesRemaining + ";";
+        returning += madeAt.toString() + ";" + madeBy.getName();
+        return returning;
+    }
 }
