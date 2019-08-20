@@ -1,0 +1,2 @@
+DH_Stickman_Jump_HD;https://drive.google.com/open?id=1x_Jt1sxOtZ-S6NoKPJyyV8FZYhUdMrI7;testPassword;fuer die Test-Applikation;1;1565179550496;JupiterPi
+StickmanJumpHD;https://drive.google.com/open?id=1x_Jt1sxOtZ-S6NoKPJyyV8FZYhUdMrI7;ibekf;test;1;1565179550496;JupiterPi

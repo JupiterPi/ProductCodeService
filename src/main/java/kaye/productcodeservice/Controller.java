@@ -12,15 +12,23 @@ public class Controller {
     @Autowired
     Database database;
 
+    @Autowired
+    RessourcesService ressources;
+
+    @GetMapping("/check")
+    public String check() {
+        return "connected";
+    }
+
     @GetMapping("/helloworld")
     public String getHelloWorld() {
         return "<a href='https://github.com/JupiterPi/ProductCodeService'>Hello World</a>";
     }
 
-    @PostMapping("/addUser/{username}/{password}")
+    /*@PostMapping("/addUser/{username}/{password}")
     public void addUser(@PathVariable String username, @PathVariable String password) {
         database.addUser(username, password);
-    }
+    }*/
 
     @GetMapping("/proofUser/{username}/{password}")
     public String proofUser(@PathVariable String username, @PathVariable String password) {
@@ -88,5 +96,11 @@ public class Controller {
     @PostMapping("/write")
     public void write() throws IOException {
         database.write();
+    }
+
+    @GetMapping("/getBackgrounds")
+    public String getBackgrounds() throws IOException {
+        System.out.println("/getBackgrounds called");
+        return ressources.getBackgroundsForWebsite();
     }
 }

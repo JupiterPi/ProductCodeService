@@ -1,0 +1,12 @@
+.error, .success {
+    font-weight: bold;
+    line-height: 180%;
+}
+
+.error {
+    color: #e33232;
+}
+
+.success {
+    color: #14a83c;
+}

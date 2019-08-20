@@ -77,7 +77,7 @@ public class Database {
         for (User user : users) returning += user.toString() + "\n";
 
         returning += "CATEGORIES\n";
-        for (Category category : categories) returning += category.toString() + "\n";
+        for (Category category : categories) returning += category.getName() + "\n";
 
         returning += "CODES\n";
         for (Category category : categories) returning += category.getWholeData() + "\n";
@@ -101,15 +101,22 @@ public class Database {
         users = new ArrayList<User>();
 
         for (String line : usersFile.getFile()) {
-            users.add(new User(line));
+            if (!empty(line)) users.add(new User(line));
         }
         for (String line : categoriesFile.getFile()) {
-            categories.add(new Category(line));
+            if (!empty(line)) categories.add(new Category(line));
         }
         for (String line : codesFile.getFile()) {
-            ProductCode code = new ProductCode(this, line);
-            code.getCategory().addCode(code);
+            if (!empty(line)) {
+                ProductCode code = new ProductCode(this, line);
+                code.getCategory().addCode(code);
+            }
         }
+    }
+
+    private boolean empty(String str) {
+        if (str.equals("")) return true;
+        else return false;
     }
 
     public void writeData(String usersFileName, String categoriesFileName, String codesFileName) throws IOException {

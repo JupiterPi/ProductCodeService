@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ProductCodeService - GUI - Testapp</title>
+        <link rel="stylesheet" type="text/css" href="../index.css">
+        <link rel="stylesheet" type="text/css" href="../hyperlinks.css">
+        <link rel="stylesheet" type="text/css" href="gui.css">
+        <script src="../http.js"></script>
+        <script src="../script.js"></script>
+        <script src="gui.js"></script>
+    </head>
+    <body>
+        <h1 class="title-kaye">Kaye</h1>
+        <h2>ProductCodeService: GUI</h2>
+
+        <!-- /proofUser -->
+        <h3>Anmeldung</h3>
+        <label>Benutzername: </label>
+        <input type="text" id="username">
+        <br>
+        <label>Passwort: </label>
+        <input type="password" id="password">
+        <br>
+        <button onclick="proofUser()">anmelden</button>
+        <br><span class="error" id="proofUser.error"></span>
+
+        <!-- /getWholeData -->
+        <h3>Alles anzeigen</h3>
+        <textarea id="getWholeData.out"></textarea>
+        <br>
+        <button onclick="getWholeData()">senden</button>
+
+        <!-- /addCategory -->
+        <h3>Kategorie hinzufügen</h3>
+        <label>Name: </label>
+        <input type="text" id="addCategory.name">
+        <br>
+        <button onclick="addCategory()">senden</button>
+
+        <!-- /addCode -->
+        <h3>Code hinzufügen</h3>
+        <label>Kategorie: </label>
+        <input type="text" id="addCode.category">
+        <br>
+        <label>Code: </label>
+        <input type="text" id="addCode.code">
+        <br>
+        <label>Data: (raw url)</label>
+        <input type="url" id="addCode.data">
+        <br>
+        <label>Notiz: </label>
+        <input type="text" id="addCode.note">
+        <br>
+        <button onclick="addCode()">senden</button>
+    </body>
+</html>

@@ -44,7 +44,7 @@ public class Category {
         for (ProductCode productCode : codes) {
             if (productCode.proofCode(code)) return productCode.getData();
         }
-        return "404: Code not found (from category)" + code;
+        return "Wrong!";
     }
 
     public String getWholeData() {

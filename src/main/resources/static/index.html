@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-<html ng-app="app" lang="de">
+<html>
     <head>
         <meta charset="utf-8">
-        <title>ProductCodeService - Testapp</title>
+        <title>Downloads | Kaye official Website</title>
         <link rel="stylesheet" type="text/css" href="index.css">
-        <script src="angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="hyperlinks.css">
+        <link rel="stylesheet" type="text/css" href="additional.css">
+        <script src="http.js"></script>
         <script src="script.js"></script>
+        <script src="dddlAddon.js"></script>
+        <script>window.onload = function() {getBackgroundsString("product");}</script>
+        <link rel="icon" href="favicon.png">
     </head>
-    <body ng-controller="controller">
-        <h1>ProductCodeService - Testapp</h1>
-        <p>Hier kannst du den ProductCodeService testen!</p>
-        <button ng-click="helloworld()">Hello World</button>
-        <span ng-model="model"></span>
+    <body>
+        <img src="full-logo.png" class="logo">
+        <h2>Downloads</h2>
+        <form>
+            <table>
+                <tr>
+                    <td><label>Produkt: </label></td>
+                    <td>
+                        <select id="product"></select>
+                        <select id="resultion">
+                            <option>HD</option>
+                            <option>UHD</option>
+                        </select>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td><label>Code: </label></td>
+                    <td><input type="text" id="code"></td>
+                </tr>
+            </table>
+            <br>
+            <a class="button" href="javascript:startDownload()">Download</a>
+        </form>
+        <span class="error" id="outputLine"></span>
+        <br><br>
+        <table><tr>
+            <td><img src="ausrufezeichen.png" class="smallicon"></td>
+            <td><p>
+                Dieses System ist noch in der Testphase. Bitte entschuldigen Sie, wenn nicht alles funktioniert, wie es funktionieren sollte. 
+                Wenn es Probleme gibt können Sie sich gerne an uns wenden.
+                <a href="mailto:boss.kaye@outlook.de">E-Mail</a> <a href="https://discord.gg/M75ntPx">Discord</a>
+            </p></td>
+        </tr></table>
     </body>
 </html>

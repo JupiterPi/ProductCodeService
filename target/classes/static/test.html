@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ProductCodeService - Testapp</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" type="text/css" href="hyperlinks.css">
+        <script src="http.js"></script>
+        <script>
+            function ckeck() {
+            alert("Hallo liebe Welt");
+                get("/check", function(msg) {
+                    if (!(msg == "connected")) alert("Es konnte keine Verbindung zum Server hergestellt werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie den Kundenservice (boss.kaye@outlook.de oder auf unserem Discord-Server)!");
+            });
+            }
+
+            function getData() {
+                var category = document.getElementById("product").value; alert(category);
+                var code = document.getElementById("code").value;        alert(code);
+                var request = "/getData/" + category + "/" + code;       alert(request);
+                get(request, function(msg) {
+                    document.getElementById("output").innerHTML = msg;
+                    alert(msg);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>ProductCodeService - Testapp</h1>
+        <p>Hier kannst du den ProductCodeService testen!</p>
+        <button onclick="helloworld()">Hello World ausrufen</button>
+        <span id="Helloworld"></span>
+        <hr>
+
+        <form>
+            <label>Produkt: </label>
+            <select id="product">
+                <option>Schluessel</option>
+                <option>testCategory</option>
+            </select>
+            <br>
+            <label>Code: </label>
+            <input type="password" id="code">
+            <button onclick="getData()">Download</button>
+            <br>
+            <span id="output"></span>
+        </form>
+    </body>
+</html>

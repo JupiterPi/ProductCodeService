@@ -1,12 +1,13 @@
-kaye\productcodeservice\ProductCode.class
-kaye\productcodeservice\CategoryDoesNotExistException.class
 kaye\productcodeservice\User.class
 jupiterpi\productcodeservice\filetool\EmptyFileException.class
-kaye\productcodeservice\UserDoesNotExistException.class
 kaye\productcodeservice\CodeDoesNotExistException.class
 kaye\productcodeservice\Database.class
+kaye\productcodeservice\RessourcesService.class
 kaye\productcodeservice\Category.class
 kaye\productcodeservice\filetool\FileTool.class
+kaye\productcodeservice\ProductCode.class
+kaye\productcodeservice\CategoryDoesNotExistException.class
+kaye\productcodeservice\UserDoesNotExistException.class
 jupiterpi\vkbln4ll\filetool\CreatedNewFileException.class
 kaye\productcodeservice\ProductCodeService.class
 kaye\productcodeservice\Controller.class
